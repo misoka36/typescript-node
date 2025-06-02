@@ -11,6 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
@@ -25,9 +26,16 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
+    "baseUrl": "./src",
+    "paths": {
+      "@/handlers/*": ["handlers/*"],
+      "@/application/*": ["application/*"],
+      "@/domains/*": ["domains/*"],
+      "@/adapters/*": ["adapters/*"],
+      "@/infrastructure/*": ["infrastructure/*"],
+      "@/utils/*": ["utils/*"]
+    }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "tests"]
 }

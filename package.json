@@ -1,20 +1,19 @@
 {
-  "name": "typescript-node",
+  "name": "typescript-node-monorepo",
   "version": "1.0.0",
-  "description": "A TypeScript Node.js project",
-  "main": "dist/index.js",
+  "private": true,
+  "workspaces": [
+    "api",
+    "web"
+  ],
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts",
-    "watch": "tsc -w"
+    "dev": "npm run dev --workspace=api",
+    "dev:api": "npm run dev --workspace=api",
+    "dev:web": "npm run dev --workspace=web",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
 }
