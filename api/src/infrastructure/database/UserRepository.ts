@@ -1,6 +1,4 @@
 import { User } from '@/domains/entities/User';
-import { UserId } from '@/domains/value-objects/UserId';
-import { Email } from '@/domains/value-objects/Email';
 import { IUserRepository } from '@/adapters/IUserRepository';
 
 // In-memory implementation for now
@@ -10,9 +8,27 @@ export class UserRepository implements IUserRepository {
   constructor() {
     // Sample data
     const sampleUsers = [
-      new User('550e8400-e29b-41d4-a716-446655440001', '太郎', 'taro@example.com', new Date(), new Date()),
-      new User('550e8400-e29b-41d4-a716-446655440002', '花子', 'hanako@example.com', new Date(), new Date()),
-      new User('550e8400-e29b-41d4-a716-446655440003', '次郎', 'jiro@example.com', new Date(), new Date())
+      User.reconstruct({
+        id: '550e8400-e29b-41d4-a716-446655440001',
+        name: '太郎',
+        email: 'taro@example.com',
+        createdAt: new Date('2024-01-01'),
+        updatedAt: new Date('2024-01-01')
+      }),
+      User.reconstruct({
+        id: '550e8400-e29b-41d4-a716-446655440002',
+        name: '花子',
+        email: 'hanako@example.com',
+        createdAt: new Date('2024-01-02'),
+        updatedAt: new Date('2024-01-02')
+      }),
+      User.reconstruct({
+        id: '550e8400-e29b-41d4-a716-446655440003',
+        name: '次郎',
+        email: 'jiro@example.com',
+        createdAt: new Date('2024-01-03'),
+        updatedAt: new Date('2024-01-03')
+      })
     ];
     
     sampleUsers.forEach(user => {
@@ -20,13 +36,14 @@ export class UserRepository implements IUserRepository {
     });
   }
 
-  async findById(id: UserId): Promise<User | null> {
-    return this.users.get(id.getValue()) || null;
+  async findById(id: string): Promise<User | null> {
+    return this.users.get(id) || null;
   }
 
-  async findByEmail(email: Email): Promise<User | null> {
+  async findByEmail(email: string): Promise<User | null> {
+    const normalizedEmail = email.toLowerCase();
     for (const user of this.users.values()) {
-      if (user.getEmail() === email.getValue()) {
+      if (user.getEmail() === normalizedEmail) {
         return user;
       }
     }
@@ -41,7 +58,7 @@ export class UserRepository implements IUserRepository {
     this.users.set(user.getId(), user);
   }
 
-  async delete(id: UserId): Promise<void> {
-    this.users.delete(id.getValue());
+  async delete(id: string): Promise<void> {
+    this.users.delete(id);
   }
 }
