@@ -5,7 +5,16 @@
       "Bash(npm install)",
       "Bash(npm run dev:*)",
       "Bash(find:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(mv:*)",
+      "Bash(npx create-docusaurus:*)",
+      "Bash(touch:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run start:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run clear:*)",
+      "Bash(npm run serve:*)",
+      "Bash(npx docusaurus start:*)"
     ],
     "deny": []
   }
