@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
+    "start": "java -jar plantuml.jar -picoweb:8080 & docusaurus start",
+    "start:docusaurus": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -13,7 +14,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "gen-api-docs": "docusaurus gen-api-docs all"
+    "gen-api-docs": "docusaurus gen-api-docs all",
+    "plantuml-server": "java -jar plantuml.jar -picoweb:8080"
   },
   "dependencies": {
     "@akebifiky/remark-simple-plantuml": "^1.0.2",

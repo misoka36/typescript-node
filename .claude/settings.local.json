@@ -17,7 +17,17 @@
       "Bash(npx docusaurus start:*)",
       "Bash(npm run gen-api-docs:*)",
       "Bash(cp:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(wget:*)",
+      "Bash(java:*)",
+      "Bash(apt:*)",
+      "Bash(apt install:*)",
+      "Bash(sudo apt:*)",
+      "Bash(sudo apt install:*)",
+      "Bash(grep:*)",
+      "Bash(pkill:*)",
+      "Bash(npm start:*)",
+      "Bash(kill:*)"
     ],
     "deny": []
   }
