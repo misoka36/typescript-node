@@ -1,0 +1,75 @@
+---
+sidebar_position: 3
+title: OpenAPI Documentation
+---
+
+# OpenAPI Documentation
+
+このセクションでは、TypeScript Node APIのOpenAPI仕様を提供しています。
+
+## API仕様
+
+以下のOpenAPI 3.0仕様は、すべてのAPIエンドポイント、リクエスト/レスポンスの形式、認証方法などを定義しています。
+
+### サーバー設定
+
+- **開発環境**: `http://localhost:3000/api/v1`
+- **本番環境**: `https://api.example.com/v1`
+
+### 認証
+
+APIはBearer形式のJWTトークンを使用した認証を実装しています。
+
+### エンドポイント一覧
+
+#### ユーザー管理 (Users)
+- `GET /users` - ユーザー一覧を取得
+- `POST /users` - 新規ユーザーを作成
+- `GET /users/{userId}` - ユーザー詳細を取得
+- `PUT /users/{userId}` - ユーザー情報を更新
+- `DELETE /users/{userId}` - ユーザーを削除
+
+#### 認証 (Authentication)
+- `POST /auth/login` - ログイン
+- `POST /auth/logout` - ログアウト
+- `POST /auth/refresh` - トークンをリフレッシュ
+
+## OpenAPI仕様ファイル
+
+完全な仕様は以下のリンクから確認できます：
+
+- [OpenAPI YAML仕様](/openapi.yaml)
+
+## 使用例
+
+### ユーザー一覧取得
+
+```bash
+curl -X GET "http://localhost:3000/api/v1/users?page=1&limit=20" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```
+
+### ユーザー作成
+
+```bash
+curl -X POST "http://localhost:3000/api/v1/users" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -d '{
+    "email": "user@example.com",
+    "password": "password123",
+    "name": "山田太郎",
+    "role": "user"
+  }'
+```
+
+### ログイン
+
+```bash
+curl -X POST "http://localhost:3000/api/v1/auth/login" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "password": "password123"
+  }'
+```

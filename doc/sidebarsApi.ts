@@ -8,6 +8,9 @@ const sidebarsApi: SidebarsConfig = {
       label: 'API リファレンス',
       items: [
         'reference',
+        'openapi-docs',
+        'openapi-swagger',
+        'openapi-redoc',
       ],
     },
   ],
