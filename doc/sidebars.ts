@@ -21,6 +21,8 @@ const sidebars: SidebarsConfig = {
       label: 'アーキテクチャ',
       items: [
         'architecture/overview',
+        'architecture/class-diagram',
+        'architecture/usecase-diagram',
       ],
     },
     {

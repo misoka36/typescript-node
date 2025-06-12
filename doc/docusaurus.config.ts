@@ -1,6 +1,8 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const remarkSimplePlantUML = require('@akebifiky/remark-simple-plantuml');
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -64,6 +66,7 @@ const config: Config = {
         sidebarPath: './sidebars.ts',
         editUrl:
           'https://github.com/your-org/typescript-node/tree/main/doc/',
+        remarkPlugins: [remarkSimplePlantUML],
       },
     ],
     [
@@ -75,6 +78,7 @@ const config: Config = {
         sidebarPath: './sidebarsApi.ts',
         editUrl:
           'https://github.com/your-org/typescript-node/tree/main/doc/',
+        remarkPlugins: [remarkSimplePlantUML],
       },
     ],
     [
@@ -86,6 +90,7 @@ const config: Config = {
         sidebarPath: './sidebarsGuides.ts',
         editUrl:
           'https://github.com/your-org/typescript-node/tree/main/doc/',
+        remarkPlugins: [remarkSimplePlantUML],
       },
     ],
   ],
